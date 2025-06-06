@@ -1,0 +1,183 @@
+<!Doctype html>
+<html>
+<head>
+    <title>My Portfolio</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color:white;
+        margin: 0;
+        padding: 20px;
+        background-image: url('pngtree-website-technology-line-dark-background-image_2344719.jpg');
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    
+    h2,h3,h4,h5 {
+        color: white;
+        text-align: center;
+        font-size:20px;
+    }
+    h5 {
+        color: black;
+        text-align: center;
+        font-size:20px;
+    }
+    h1{
+        margin-left: 40px;
+        color : white;
+    }
+    
+    pre {
+        font-family:Arial;
+        font-size: 18px;
+        color: white;
+        text-align: center;
+    }
+    
+    p{
+        margin-left: 40px;
+        color: white;
+        
+    }
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        margin-left: 40px;
+    }
+    .navbar {
+        background-color: #333030;
+        overflow: hidden;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar a:hover {
+        background-color: #575757;
+        color: white;
+    }
+
+    .skill-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .skill-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 10px 0;
+        color: white;
+        font-size: 18px;
+    }
+    .skill-item img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+
+    .feedback{
+        text-align: center;
+        margin-top: 20px;
+        color: black;
+        background-color: white;
+        width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        border-radius: 10px;
+    }
+
+    
+</style>
+<body>
+    <nav class="navbar">
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact Me</a>
+        <a href="#projects">Projects</a>
+    </nav>
+    <br>
+    <h1><b>Nisha Jayachandran</b></h1>
+    <p>Full Stack Developer</p>
+    <a href="#projects" class="btn">View My Work</a>
+    <br><br>
+    
+    <div>
+        <h2 id="about"> About Me</h2>
+        <pre>I am a passionate full stack developer with a keen interest in creating dynamic and 
+            responsive web applications.I have experience in both front-end and back-end development,
+            and I enjoy working on projects that challenge my skills and creativity.</pre>
+
+    </div>
+    
+    <h3 id="skills"> Skills</h3>
+    <div style="text-align: center;">
+        <ul class="skill-list">
+            <li class="skill-item"><img src="https://css-plus.com/static/807132d43a089b5374c0b1a24160eb98/a2c25/featured.png"> HTML</li>
+            <li class="skill-item"><img src="https://css-plus.com/static/807132d43a089b5374c0b1a24160eb98/a2c25/featured.png"> CSS</li>
+            <li class="skill-item"><img src="https://css-plus.com/static/807132d43a089b5374c0b1a24160eb98/a2c25/featured.png"> JavaScript</li>
+            <li class="skill-item"><img src="https://css-plus.com/static/807132d43a089b5374c0b1a24160eb98/a2c25/featured.png"> Java</li>
+        </ul>
+    </div>
+    <div>
+        <h3 id="contact"> Contact Me</h3>
+        <ul style="list-style: none; padding: 0; text-align: center;">
+            <li>Phone: +91 1234567890</li>
+            <li>Email: nisha15@gmail.com</li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/nisha-jayachandran-123456789/" target="_blank">Nisha Jayachandran</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h4 id="projects"> Projects</h4>
+        <p style="text-align: center;"><b>Cool Drink Detection And Analysis Using Ai</b></p>
+        <img src="2025-04-05 (6).png" alt="Project 1" style="width:500px;height:350px;">
+        <pre>This project involves using AI to detect and analyze the Cool Drinks Brand and defect iteams by using Yolov8 algorithm.
+            The end users of my projects are HCCB, Pepsico, other beverage compaines. I use Live 
+            web cam detection to detect the brand and defect status where the result will be displayed in the web page.</pre>
+    </div>
+    <div class="feedback">
+        <h5>Leave Feedback Here</h5>
+        <lable for="name">Name</lable>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <br><br>
+        <lable for="email">Email</lable>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <br><br>
+        <lable for="feedback">Feedback</lable>
+        <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Enter your feedback here..." required></textarea>
+        <br><br>
+        <button type="submit" class="btn">Submit Feedback</button>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Booking Form</title>
+    <style>
+        #output {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 20px;
+            display: none;
+            max-width: 5000px;
+            background: #f9f9f9;
+        }
+        #output h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Appointment Booking</h1>
+    <form id="appointmentForm" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required autocomplete="on"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="xyz@gmail.com" autocomplete="on"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required min="1" max="80"><br><br>
+
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <label for="lastcheckupmonth">Last Checkup (Month):</label>
+        <input type="month" id="lastcheckupmonth" name="lastcheckupmonth"><br><br>
+
+        <label for="patientid">Patient Id:</label>
+        <input type="password" id="patientid" name="patientid" required autofocus><br><br>
+
+        <label>Select Gender:</label><br>
+        <label><input type="radio" value="Male" name="gender" required> Male</label>
+        <label><input type="radio" value="Female" name="gender" required> Female</label><br><br>
+
+        <label for="bp">BP range:</label><br>
+        <input type="range" id="bp" name="bp" min="60" max="200" step="5" oninput="document.getElementById('bprange').innerText = this.value">
+        <span id="bprange">130</span><br><br>
+
+        <label for="countrycode">Country Code:</label>
+        <select id="countrycode" name="countrycode">    
+            <option value="+91">India (+91)</option>
+            <option value="+1">USA (+1)</option>
+            <option value="+44">UK (+44)</option>
+            <option value="+61">Australia (+61)</option>
+            <option value="+81">Japan (+81)</option>
+            <option value="+49">Germany (+49)</option>
+            <option value="+33">France (+33)</option>
+            <option value="+39">Italy (+39)</option>
+        </select><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="1234567890"><br><br>
+
+        <p>Select if any of these apply to you:</p>
+        <label><input type="checkbox" name="healthHistory" value="tablets"> I am currently taking tablets</label><br>
+        <label><input type="checkbox" name="healthHistory" value="surgery"> I have undergone surgery</label><br>
+        <label><input type="checkbox" name="healthHistory" value="allergies"> I have allergies</label><br>
+        <label><input type="checkbox" name="healthHistory" value="diabetes"> I have diabetes</label><br>
+        <label><input type="checkbox" name="healthHistory" value="none"> None of the above</label><br><br>
+
+        <label for="healthurl">Provide your health url:</label>
+        <input type="url" name="healthurl" id="healthurl" placeholder="https://example.com/health" required><br><br>
+
+        <label for="fileupload">Upload Your Medical Reports:</label>
+        <input type="file" id="fileupload" name="fileupload[]" accept=".pdf,.jpg,.jpeg,.png" multiple><br><br>
+        <h2>Video to fill the form</h2>
+        <video width="320" height="240" controls>
+            <source src="https://videocdn.cdnpk.net/videos/d5fe3b28-a514-5d23-9c41-1d57301dfd98/horizontal/previews/clear/small.mp4?token=exp=1749113133~hmac=512b7cf65454e47ce3ecd1f1876d84c5b8c18c956ce5475594c0def81c4d7f4c" type="video/mp4">
+            Your browser does not support the video tag.
+        </video><br><br>
+        <input type="submit" value="Book Appointment">
+        <input type="reset" value="Reset Form">
+    </form>
+
+    <div id="output">
+        <h3>Form Data Preview</h3>
+        <p>Name: <span id="outName"></span></p>
+        <p>Email: <span id="outEmail"></span></p>
+        <p>Age: <span id="outAge"></span></p>
+        <p>Preferred Date: <span id="outDate"></span></p>
+        <p>Preferred Time: <span id="outTime"></span></p>
+        <p>Last Checkup (Month): <span id="outLastCheckup"></span></p>
+        <p>Patient ID: <span id="outPatientId"></span></p>
+        <p>Gender: <span id="outGender"></span></p>
+        <p>BP Range: <span id="outBp"></span></p>
+        <p>Country Code: <span id="outCountryCode"></span></p>
+        <p>Phone Number: <span id="outPhone"></span></p>
+        <p>Health History: <span id="outHealthHistory"></span></p>
+        <p>Health URL: <span id="outHealthUrl"></span></p>
+    </div>
+
+<script>
+document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const age = document.getElementById('age').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const lastCheckup = document.getElementById('lastcheckupmonth').value;
+    const patientid = document.getElementById('patientid').value;
+    const gender = document.querySelector('input[name="gender"]:checked')?.value || "Not selected";
+    const bp = document.getElementById('bp').value;
+    const countryCode = document.getElementById('countrycode').value;
+    const phone = document.getElementById('phone').value;
+    const healthUrl = document.getElementById('healthurl').value;
+    const healthHistoryElements = document.querySelectorAll('input[name="healthHistory"]:checked');
+    const healthHistory = [];
+    healthHistoryElements.forEach(el => healthHistory.push(el.value));
+    document.getElementById('outName').innerText = name;
+    document.getElementById('outEmail').innerText = email;
+    document.getElementById('outAge').innerText = age;
+    document.getElementById('outDate').innerText = date;
+    document.getElementById('outTime').innerText = time;
+    document.getElementById('outLastCheckup').innerText = lastCheckup || "Not provided";
+    document.getElementById('outPatientId').innerText = patientid;
+    document.getElementById('outGender').innerText = gender;
+    document.getElementById('outBp').innerText = bp;
+    document.getElementById('outCountryCode').innerText = countryCode;
+    document.getElementById('outPhone').innerText = phone;
+    document.getElementById('outHealthHistory').innerText = healthHistory.length ? healthHistory.join(", ") : "None selected";
+    document.getElementById('outHealthUrl').innerText = healthUrl;
+    document.getElementById('output').style.display = "block";
+
+    sessionStorage.setItem('name', name);
+    sessionStorage.setItem('email', email);
+    localStorage.setItem('age', age);
+    localStorage.setItem('date', date);
+       
+});
+</script>
+</body>
+</html>
